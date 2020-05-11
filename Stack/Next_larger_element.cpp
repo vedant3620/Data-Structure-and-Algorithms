@@ -33,6 +33,8 @@ using namespace std;
 #define MOD 1000000007
 #define SPEED ios::sync_with_stdio(false); cin.tie(0); cout.tie(0)
 
+
+/* SOLUTION 1 */
 int main() {
     SPEED;
     //CODE
@@ -52,6 +54,31 @@ int main() {
 		    st.push(i);
 		}
 		while(!st.empty()){ans[st.top()]=-1;st.pop();}
+		for(ll i=0;i<n;i++)cout<<ans[i]<<" ";
+		cout<<endl;
+		
+	}
+	return 0;
+}
+
+/* SOLUTION 2 */
+
+int main() {
+    SPEED;
+    //CODE
+	test(){
+		ll n;
+		cin>>n;
+		ll a[n];
+		for(ll i=0;i<n;i++)cin>>a[i];
+		ll ans[n];
+		stack <ll> st;
+		for(ll i=n-1;i>=0;i--){
+		    while(!st.empty()&&a[st.top()]<a[i])st.pop();
+		    if(st.empty())ans[i]=-1;
+		    else ans[i]=a[st.top()];
+		    st.push(i);
+		}
 		for(ll i=0;i<n;i++)cout<<ans[i]<<" ";
 		cout<<endl;
 		
