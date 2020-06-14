@@ -106,3 +106,5 @@ dist
 *.exe
 
 .vscode
+
+main.py
